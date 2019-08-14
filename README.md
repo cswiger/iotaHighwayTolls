@@ -6,7 +6,7 @@ node.js scripts to pay highway tolls in IOTA tokens using GPS
 tollbooths.json - set of polygon geographical areas over selected highways between Charleston WV and Outer Banks NC for field testing during an upcoming trip to the beach and back. 
 
 
-GPS_payToll.s - node.js script to run from /etc/rc.local on startup, tracks GPS location and sends IOTA tokens to the toll collector address whenever a virtual tollbooth area is entered.
+GPS_payToll.js - node.js script to run from /etc/rc.local on startup, tracks GPS location and sends IOTA tokens to the toll collector address whenever a virtual tollbooth area is entered.
 
 
 config.ini :
