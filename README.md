@@ -1,7 +1,8 @@
 # iotaHighwayTolls
 node.js scripts to pay highway tolls in IOTA tokens using GPS
 
-config.ini 1. stores current index of source address of IOTA tokens, incremented every time a toll payment is made
+config.ini 
+   1. stores current index of source address of IOTA tokens, incremented every time a toll payment is made
    1. address of toll collector - this can be based off a different seed and account from the drivers source address
    1. seed of drivers source addresses. This file should have permissions 0600 read/writable by owner only for security 
 
