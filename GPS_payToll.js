@@ -30,7 +30,7 @@ parser.on('data', line => gps.update(line));
 // flag for having paid toll prevent multi payments
 paid = false;
 
-// function to clear paid toll flag after a setTimeout(clearPaidFlag,300000) or 5 minutes!
+// function to clear paid toll flag after a setTimeout(clearPaidFlag,300000) or 5 minutes
 function clearPaidFlag() { paid = false; }
 
 // create nexmo 
