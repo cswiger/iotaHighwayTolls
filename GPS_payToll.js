@@ -15,7 +15,7 @@ const geolib = require('geolib');
 // nexmo sms text notifications
 const Nexmo = require('nexmo');
 // load tollbooths polys - important to use absolute path here if run from /etc/rc.local
-const tollbooths = require('/home/pi/src/iotaNodeJS/tollbooths.json');
+const tollbooths = require('/home/pi/src/iotaHighwayTolls/tollbooths.json');
 
 // create the iota api on devnet
 const iota = Iota.composeAPI({ provider: 'https://nodes.devnet.iota.org:443' }); 
@@ -43,7 +43,7 @@ const nexmo = new Nexmo({
 async function payToll(msg) {
 
   // read current config
-  var config = ini.parse(fs.readFileSync('/home/pi/src/iotaNodeJS/config.ini', 'utf-8'));
+  var config = ini.parse(fs.readFileSync('/home/pi/src/iotaHighwayTolls/config.ini', 'utf-8'));
   const seed = config.paytoll.myseed;
   const tollCollector = config.paytoll.tollCollector;
   currentIndex = Number(config.paytoll.currentIndex);
@@ -90,7 +90,7 @@ async function payToll(msg) {
     response.map(tx => console.log(tx));
     // bump up currentIndex, config.ini should have permissions 0600 to be private and writable
     config.paytoll.currentIndex = (currentIndex + 1).toString()
-    fs.writeFileSync('/home/pi/src/iotaNodeJS/config.ini', ini.stringify(config.paytoll, { section: 'paytoll' }))
+    fs.writeFileSync('/home/pi/src/iotaHighwayTolls/config.ini', ini.stringify(config.paytoll, { section: 'paytoll' }))
   } catch (error) {
     console.log(error);
     throw error;	// try fixing unhandled promise rejections when cell coverage is spotty
